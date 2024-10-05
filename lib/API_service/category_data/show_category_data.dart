@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:new_app/api/api_key.dart';
 import 'package:new_app/models/category_model/show_category_model.dart';
 
 class ShowCategoryData {
@@ -7,7 +8,7 @@ class ShowCategoryData {
 
   Future<void> GetShowCategoryData(String category) async {
     String url =
-        'https://newsapi.org/v2/top-headlines?country=us&category=$category&apiKey=fe36640741214cfca9d3ddb0cde9f9c0';
+        'https://newsapi.org/v2/top-headlines?country=us&category=$category&apiKey=$API_key';
 
     var response = await http.get(Uri.parse(url));
     var jsonData = jsonDecode(response.body);

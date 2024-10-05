@@ -1,12 +1,13 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:new_app/api/api_key.dart';
 import 'package:new_app/models/slider_model.dart';
 
 class SliderData {
   List<SliderModel> sliders = [];
 
   Future<void> GetSliderData() async {
-    String url = 'https://newsapi.org/v2/everything?q=tesla&from=2024-08-14&sortBy=publishedAt&apiKey=fe36640741214cfca9d3ddb0cde9f9c0';
+    String url = 'https://newsapi.org/v2/everything?q=tesla&from=2024-08-14&sortBy=publishedAt&apiKey=$API_key';
 
     var response = await http.get(Uri.parse(url));
     var jsonData = jsonDecode(response.body);

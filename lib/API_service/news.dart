@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:new_app/api/api_key.dart';
 import 'package:new_app/models/article_model.dart';
 
 class NewsData {
@@ -7,7 +8,7 @@ class NewsData {
 
   Future<void> GetNewsData() async {
     String url =
-        'https://newsapi.org/v2/everything?q=apple&from=2024-08-14&to=2024-07-13&sortBy=popularity&apiKey=fe36640741214cfca9d3ddb0cde9f9c0';
+        'https://newsapi.org/v2/everything?q=apple&from=2024-08-14&to=2024-07-13&sortBy=popularity&apiKey=$API_key';
 
     var response = await http.get(Uri.parse(url));
     var jsonData = jsonDecode(response.body);
